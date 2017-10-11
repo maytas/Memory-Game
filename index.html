@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html ng-app="game" ng-controller="gameCtrl">
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src='jquery.min.js'></script>
+  <script src="angular.min.js"></script>
+  <script  src="index.js"></script>
+ 
+  <title>Memory Game App</title>
+  <style>
+	* {
+		margin: 0;
+		padding: 0;
+	}
+	body {
+		font: 18px Verdana;
+		color: #FFF;
+	  	background: -webkit-gradient(linear, center top, center bottom, color-stop(0%,#1D3749), color-stop(60%,#1D3749), color-stop(100%,#559BB5));
+	}
+	#picbox {
+		margin: 0px auto;
+		width: 650px;
+		height:650px;
+	}
+	#boxcard {
+		z-index: 1;
+		margin: 10px 0 0;
+	}
+	#boxcard div{
+		float: left;
+	    width: 130px;
+	    height: 130px;
+	    margin: 1px; 
+	    border: 1px solid;
+	    cursor: pointer;
+	    box-shadow: 0 0px 50px rgba(0,0,0,.5);
+	    background: whitesmoke;
+	    z-index: 2;
+	}
+	#boxcard div img {
+		display: none;
+		border-radius: 10px;
+		z-index: 3;
+	}
+	#boxbuttons {
+		text-align: center;
+		margin: 25px;
+		width:125%;
+		display: block;
+	}
+	#boxbuttons .button {
+		text-transform: uppercase;
+		background: #5bc0de;
+		padding: 5px 5px;
+		margin: 5px;
+		border-radius: 10px;
+		cursor: pointer;
+	}
+	#boxbuttons .button:hover {
+		background: #999;
+	}
+	.msg {
+	    color: indianred;
+	    font-weight: bold;
+	    font-size: 16px;
+	    width: 300px;
+	    height: 22px;
+	    margin-top: 10px;
+	}
+  </style>
+  <script src="prefixfree.min.js"></script>
+</head>
+
+<body>
+
+  <div id="picbox"> 
+  	<div class="msg">Click a tile and then try match it</div>
+  
+  <div id="boxcard"></div>
+  <div>
+  	
+  <span id="boxbuttons">
+  		<p id="timeBox"></p><br/>
+  	<span class="button">
+      <a ng-click="resetGame();">Reset</a>
+    </span> <br/><br/>
+    <span class="button">
+    	Score:
+      <span id="counter">{{totalPoints}}</span>
+      
+    </span><br/><br/>
+  	 <span class="button">
+    	Matched Pairs: <span id="matchedPair">{{matchedPairCount}}/8</span>
+      
+    </span>
+    
+  </span></div>
+</div>
+  
+
+</body>
+</html>
